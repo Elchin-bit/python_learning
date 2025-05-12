@@ -1,6 +1,35 @@
 import os
 
 
+def manage_test_folder(folder_name="my_os_test_folder"):
+    print("--- Демонстрация работы с модулем os ---")
+
+    print("\nСодержимое текущей директории")
+    current_directory_content = os.listdir('.')
+    if not current_directory_content:
+        print("(пусто)")
+    else:
+        for item in current_directory_content:
+            print(item)
+
+    print(f"\nСоздаем папку: {folder_name}")
+    if not os.path_exists(folder_name):
+        os.mkdir(folder_name)
+        print(f"Папка '{folder_name}' успешно создана")
+    else:
+        print(f"Папка '{folder_name}' уже существует")
+
+    print(f"\nПроверяю наличие папки: {folder_name}")
+    if os.path.exists(folder_name) and os.path.isdir(folder_name):
+        print(f"Папка '{folder_name}' существует и является директорией")
+    else:
+        print(f"Что-то пошло не так: Папка '{folder_name}' Не найдена или это не та папка")
+
+    print("-" * 30)
+
+
+
+
 def file_contents():
     print("--- Задача: Содержимое файла ---")
     filename = input()
@@ -75,9 +104,6 @@ def line_numbering():
             output_file.write(line_to_write)
 
 
-
-
-
 if __name__ == "__main__":
     # file_contents()
     # the_second_to_last_line()
@@ -85,4 +111,5 @@ if __name__ == "__main__":
     # input_line()
     # total_cost()
     # sum_of_the_numbers_in_the_rows()
-    line_numbering()
+    # line_numbering()
+    manage_test_folder()
