@@ -50,7 +50,8 @@ def total_cost():
 
     print(total)
 
-def  sum_of_the_numbers_in_the_rows():
+
+def sum_of_the_numbers_in_the_rows():
     print("--- Задача: Сумма чисел в строках ---")
     with open('numbers.txt', 'r', encoding='UTF-8') as file:
         content = file.readlines()
@@ -58,7 +59,6 @@ def  sum_of_the_numbers_in_the_rows():
             parts = line.split()
             sum_for_this_line = sum(map(int, parts))
             print(sum_for_this_line)
-
 
 
 if __name__ == "__main__":
