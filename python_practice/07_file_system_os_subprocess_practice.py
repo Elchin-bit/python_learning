@@ -1,3 +1,6 @@
+import os
+
+
 def file_contents():
     print("--- Задача: Содержимое файла ---")
     filename = input()
