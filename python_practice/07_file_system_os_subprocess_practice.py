@@ -61,10 +61,25 @@ def sum_of_the_numbers_in_the_rows():
             print(sum_for_this_line)
 
 
+def line_numbering():
+    print("--- Задача: Нумерация строк ---")
+    with open("input.txt", 'r', encoding='UTF-8') as input_file, open('output.txt', 'w',
+                                                                      encoding='UTF-8') as output_file:
+        content = input_file.readlines()
+        for index, text in enumerate(content, start=1):
+            cleaned_text_line = text.rstrip('\n')
+            line_to_write = f'{index}) {cleaned_text_line}\n'
+            output_file.write(line_to_write)
+
+
+
+
+
 if __name__ == "__main__":
     # file_contents()
     # the_second_to_last_line()
     # the_sum_of_two_numbers()
     # input_line()
     # total_cost()
-    sum_of_the_numbers_in_the_rows()
+    # sum_of_the_numbers_in_the_rows()
+    line_numbering()
