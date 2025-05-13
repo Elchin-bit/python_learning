@@ -1,4 +1,60 @@
+import subprocess
 import os
+
+
+def demonstrate_subprocess_usage():
+    print("\n--- Демонстрация работы с модулем subprocess ---")
+
+    print("\n--- Команда для получения текущей директории ---")
+    print(f"Текущая директория (через os.getcwd()): {os.getcwd()}")
+
+    if os.name == 'nt':  # Windows
+        command_to_get_cwd_subprocess = ['cmd', '/c', 'echo %cd%']
+        encoding_for_output = 'cp866'
+    else:
+        command_to_get_cwd_subprocess = ['pwd']
+        encoding_for_output = 'utf-8'
+
+    result_cwd_subprocess = subprocess.run(
+        command_to_get_cwd_subprocess,
+        capture_output=True,
+        text=True,
+        shell=False,
+        encoding=encoding_for_output
+    )
+
+    print(f"\nРезультат subprocess для получения текущей директории:")
+    print(f"  Запущенная команда: {result_cwd_subprocess.args}")
+    print(f"  Код возврата: {result_cwd_subprocess.returncode}")
+    if result_cwd_subprocess.stdout:
+        print(f"  Вывод (stdout):\n  {result_cwd_subprocess.stdout.strip()}")
+    if result_cwd_subprocess.stderr:
+        print(f"  Ошибки (stderr):\n  {result_cwd_subprocess.stderr.strip()}")
+
+    print("\n--- Команда для получения текущей даты/времени ---")
+    if os.name == 'nt':  # Windows
+        command_to_get_datetime = ['cmd', '/c', 'time /t & date /t']
+    else:  # Linux/macOS
+        command_to_get_datetime = ['date']
+
+    result_datetime = subprocess.run(
+        command_to_get_datetime,
+        capture_output=True,
+        text=True,
+        shell=False,
+        encoding=encoding_for_output
+    )
+
+    print(f"\nРезультат subprocess для даты/времени:")
+    print(f"  Запущенная команда: {result_datetime.args}")
+    print(f"  Код возврата: {result_datetime.returncode}")
+    if result_datetime.stdout:
+        print(f"  Дата/Время (stdout):\n  {result_datetime.stdout.strip()}")
+    if result_datetime.stderr:
+        # Исправлена опечатка "Ошбики"
+        print(f"  Ошибки (stderr):\n  {result_datetime.stderr.strip()}")
+
+    print("-" * 30)
 
 
 def manage_test_folder(folder_name="my_os_test_folder"):
@@ -26,8 +82,6 @@ def manage_test_folder(folder_name="my_os_test_folder"):
         print(f"Что-то пошло не так: Папка '{folder_name}' Не найдена или это не та папка")
 
     print("-" * 30)
-
-
 
 
 def file_contents():
@@ -112,4 +166,5 @@ if __name__ == "__main__":
     # total_cost()
     # sum_of_the_numbers_in_the_rows()
     # line_numbering()
-    manage_test_folder()
+    # manage_test_folder()
+    demonstrate_subprocess_usage()
