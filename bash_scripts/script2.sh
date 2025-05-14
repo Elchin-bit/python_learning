@@ -4,6 +4,6 @@
 FOLDER_NAME=$1
 mkdir $FOLDER_NAME
 echo "Текущая дата и время записывается в файл..."
-date # Эта команда выведет дату на экран
-date > $FOLDER_NAME/info.txt # Эта команда запишет дату в файл
+date
+date > $FOLDER_NAME/info.txt
 echo "Дата и время записаны в $FOLDER_NAME/info.txt"
