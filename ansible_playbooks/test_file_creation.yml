@@ -1,0 +1,10 @@
+---
+- name: My First Playbook to Test Localhost  # Элемент списка (пьеса)
+  hosts: local                             # Ключ-значение ВНУТРИ этой пьесы
+  become: no                             # Еще один ключ-значение ВНУТРИ этой же пьесы
+  tasks:                                   # Еще один ключ-значение, значением которого является СПИСОК задач
+    - name: Create an empty file in /tmp # Элемент списка задач
+      ansible.builtin.file:              # Ключ-значение ВНУТРИ этой задачи
+        path: /tmp/ansible_test_file_from_playbook.txt # Вложенный ключ-значение
+        state: touch
+        mode: '0644'
