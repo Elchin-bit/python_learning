@@ -10,7 +10,7 @@ def merge_lists2():
     for i in range(n):
         current_line_numbers = [int(c) for c in input().split()]
         all_lines_data.extend(current_line_numbers)
-        all_lines_data.sort()
+    all_lines_data.sort()
     print(all_lines_data)
 
 
