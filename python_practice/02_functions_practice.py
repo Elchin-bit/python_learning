@@ -15,6 +15,8 @@ def merge_lists2():
 
 
 
+
+
 if __name__ == "__main__":
     # merge_lists([int(c) for c in input().split()], [int(c) for c in input().split()])
     print(merge_lists2())
