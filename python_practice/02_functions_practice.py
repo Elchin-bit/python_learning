@@ -45,6 +45,10 @@ def get_next_prime(num):
         next_num += 1
 
 
+def is_password_good(password):
+    pass
+
+
 if __name__ == "__main__":
     # merge_lists([int(c) for c in input().split()], [int(c) for c in input().split()])
     # print(merge_lists2())
@@ -59,6 +63,10 @@ if __name__ == "__main__":
     # print(is_prime(n))
 
     # --- Код для задачи с простым числом 2 ---
-    print("--- Задача: Найти простое число ---")
-    n = int(input())
-    print(get_next_prime(n))
+    # print("--- Задача: Найти простое число ---")
+    # n = int(input())
+    # print(get_next_prime(n)
+
+    # --- Код для задачи: Хороший пароль ---
+    txt = input()
+    print(is_password_good(txt))
