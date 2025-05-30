@@ -1,4 +1,5 @@
 import math
+import re
 
 
 def merge_lists(list1, list2):
@@ -46,7 +47,45 @@ def get_next_prime(num):
 
 
 def is_password_good(password):
-    pass
+    has_upper = False
+    has_lower = False
+    has_digit = False
+
+    if len(password) < 8:
+        return False
+
+    for char in password:
+        if char.isupper():
+            has_upper = True
+        if char.islower():
+            has_lower = True
+        if char.isdigit():
+            has_digit = True
+
+    return has_upper and has_lower and has_digit
+
+
+def is_one_away(word1, word2):
+    count = 0
+    if word1 == word2 or len(word1) != len(word2):
+        return False
+    for i in range(len(word1)):
+        if word1[i] == word2[i]:
+            count += 1
+    if len(word1) - count == 1:
+        return True
+    else:
+        return False
+
+
+def is_palindrome(text):
+    text_lower = text.lower()
+    cleaned_text = ""
+    for char in text_lower:
+        if char.isalpha():
+            cleaned_text += char
+
+    return cleaned_text == cleaned_text[::-1]
 
 
 if __name__ == "__main__":
@@ -68,5 +107,14 @@ if __name__ == "__main__":
     # print(get_next_prime(n)
 
     # --- Код для задачи: Хороший пароль ---
+    # txt = input()
+    # print(is_password_good(txt))
+
+    # --- Код для задачи: Ровно в одном ---
+    # txt1 = input()
+    # txt2 = input()
+    # print(is_one_away(txt1, txt2))
+
+    # --- Код для задачи: Палиндром ---
     txt = input()
-    print(is_password_good(txt))
+    print(is_palindrome(txt))
