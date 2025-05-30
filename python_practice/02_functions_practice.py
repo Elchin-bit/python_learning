@@ -88,6 +88,11 @@ def is_palindrome(text):
     return cleaned_text == cleaned_text[::-1]
 
 
+def is_valid_password(password):
+    pass
+
+
+
 if __name__ == "__main__":
     # merge_lists([int(c) for c in input().split()], [int(c) for c in input().split()])
     # print(merge_lists2())
@@ -116,5 +121,9 @@ if __name__ == "__main__":
     # print(is_one_away(txt1, txt2))
 
     # --- Код для задачи: Палиндром ---
-    txt = input()
-    print(is_palindrome(txt))
+    # txt = input()
+    # print(is_palindrome(txt))
+
+    # --- Код для задачи: Проверка пароля ---
+    psw = input()
+    print(is_valid_password(psw))
