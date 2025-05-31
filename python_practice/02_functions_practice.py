@@ -116,6 +116,32 @@ def is_valid_password(password):
     return condition_a and condition_b and condition_c
 
 
+def is_correct_bracket(text):
+    count = 0
+    for char in text:
+        if char == ')':
+            count -= 1
+            if count < 0:
+                return False
+        elif char == '(':
+            count += 1
+
+    return count == 0
+
+def convert_to_python_case(text):
+    if not text:
+        return ""
+
+    new_text = text[0].lower()
+
+    for char in text[1:]:
+        if char.isupper():
+            new_text += "_" + char.lower()
+        else:
+            new_text += char
+
+    return new_text
+
 
 if __name__ == "__main__":
     # merge_lists([int(c) for c in input().split()], [int(c) for c in input().split()])
@@ -149,5 +175,13 @@ if __name__ == "__main__":
     # print(is_palindrome(txt))
 
     # --- Код для задачи: Проверка пароля ---
-    psw = input()
-    print(is_valid_password(psw))
+    # psw = input()
+    # print(is_valid_password(psw))
+
+    # --- Код для задачи: Правильная скобочная последовательность ---
+    # txt = input()
+    # print(is_correct_bracket(txt))
+
+    # --- Код для задачи: Змеиный регистр ---
+    txt = input()
+    print(convert_to_python_case(txt))
