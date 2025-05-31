@@ -142,6 +142,8 @@ def convert_to_python_case(text):
 
     return new_text
 
+def get_middle_point(x1, y1, x2, y2):
+    pass
 
 if __name__ == "__main__":
     # merge_lists([int(c) for c in input().split()], [int(c) for c in input().split()])
