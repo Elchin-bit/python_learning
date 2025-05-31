@@ -1,5 +1,6 @@
 import math
 import re
+from itertools import count
 
 
 def merge_lists(list1, list2):
@@ -89,7 +90,30 @@ def is_palindrome(text):
 
 
 def is_valid_password(password):
-    pass
+    parts = password.split(':')
+
+    if len(parts) != 3:
+        return False
+
+    a_str, b_str, c_str = parts[0], parts[1], parts[2]
+
+    if not (a_str.isdigit() and b_str.isdigit() and c_str.isdigit()):
+        return False
+
+    a_num = int(a_str)
+    b_num = int(b_str)
+    c_num = int(c_str)
+
+    if not (a_num > 0 and b_num > 0 and c_num > 0):
+        return False
+
+    condition_a = (a_str == a_str[::-1])
+
+    condition_b = is_prime(b_num)
+
+    condition_c = (c_num % 2 == 0)
+
+    return condition_a and condition_b and condition_c
 
 
 
