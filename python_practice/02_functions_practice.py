@@ -228,6 +228,7 @@ def get_month(language, number):
     else:
         return ru[number]
 
+
 def is_magic(date):
     parts = date.split('.')
     magical_date = int(parts[0]) * int(parts[1])
@@ -237,13 +238,16 @@ def is_magic(date):
     # parts = date.split('.')
     # magical_date = int(parts[0]) * int(parts[1]) == int(parts[2]) % 100
     #
-    # if magical_date:
-    #     return True
-    # else:
-    #     return False
+    # return magical_date
 
 
-
+def is_pangram(text):
+    alphabet = 'abcdefghijklmnopqrstuvwxyz'
+    text_lower = text.lower()
+    for letter in alphabet:
+        if letter not in text_lower:
+            return False
+    return True
 
 
 
@@ -328,5 +332,9 @@ if __name__ == "__main__":
     # print(get_month(lan, num))
 
     # --- Код для задачи: Магические даты ---
-    date = input()
-    print(is_magic(date))
+    # date = input()
+    # print(is_magic(date))
+
+    # --- Код для задачи: Панаграммы ---
+    text = input()
+    print(is_pangram(text))
