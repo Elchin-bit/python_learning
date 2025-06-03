@@ -173,6 +173,80 @@ def solve(a, b, c):
             return x2, x1
 
 
+def draw_triangle():
+    height = 8
+    base_width = 15
+
+    for i in range(height):
+        num_stars = 2 * i + 1
+        num_spaces = (base_width - num_stars) // 2
+        line_to_print = (' ' * num_spaces) + ('*' * num_stars)
+        print(line_to_print)
+
+
+def get_shipping_cost(quantity):
+    first_product = 1000
+    next_product = 120
+    if quantity == 1:
+        return first_product
+    else:
+        return first_product + ((quantity - 1) * next_product)
+
+
+def compute_binom(n, k):
+    binominal_coefficient = math.factorial(n) / (math.factorial(k) * math.factorial(n - k))
+    return int(binominal_coefficient)
+
+
+def number_to_words(num):
+    dig = ['', 'один', 'два', 'три', 'четыре', 'пять', 'шесть', 'семь', 'восемь', 'девять']
+    dec = ['', 'десять', 'двадцать', 'тридцать', 'сорок', 'пятьдесят',
+           'шестьдесят', 'семьдесят', 'восемьдесят', 'девяносто']
+    teen = ['десять', 'одиннадцать', 'двенадцать', 'тринадцать', 'четырнадцать',
+            'пятнадцать', 'шестнадцать', 'семнадцать', 'восемнадцать', 'девятнадцать']
+
+    if num < 10:
+        return dig[num]
+    elif num < 20:
+        return teen[num - 10]
+    elif num % 10 == 0:
+        return dec[num // 10]
+    else:
+        tens_str = dec[num // 10]
+        ones_str = dig[num % 10]
+        return tens_str + ' ' + ones_str
+
+
+def get_month(language, number):
+    en = ['', 'january', 'february', 'march', 'april', 'may', 'june', 'july', 'august', 'september', 'october',
+          'november', 'december']
+    ru = ['', 'январь', 'февраль', 'март', 'апрель', 'май', 'июнь', 'июль', 'август', 'сентябрь', 'октябрь', 'ноябрь',
+          'декабрь']
+
+    if language == 'en':
+        return en[number]
+    else:
+        return ru[number]
+
+def is_magic(date):
+    parts = date.split('.')
+    magical_date = int(parts[0]) * int(parts[1])
+
+    return magical_date == int(parts[2]) % 100
+
+    # parts = date.split('.')
+    # magical_date = int(parts[0]) * int(parts[1]) == int(parts[2]) % 100
+    #
+    # if magical_date:
+    #     return True
+    # else:
+    #     return False
+
+
+
+
+
+
 if __name__ == "__main__":
     # merge_lists([int(c) for c in input().split()], [int(c) for c in input().split()])
     # print(merge_lists2())
@@ -228,6 +302,31 @@ if __name__ == "__main__":
     # print(length, square)
 
     # --- Код для задачи: Корни управления ---
-    a, b, c = int(input()), int(input()), int(input())
-    x1, x2 = solve(a, b, c)
-    print(x1, x2)
+    # a, b, c = int(input()), int(input()), int(input())
+    # x1, x2 = solve(a, b, c)
+    # print(x1, x2)
+
+    # --- Код для задачи: Звездный треугольник ---
+    # draw_triangle()
+
+    # --- Код для задачи: Калькулятор доставки ---
+    # n = int(input())
+    # print(get_shipping_cost(n))
+
+    # --- Код для задачи: Биномиальный коэффициент ---
+    # n = int(input())
+    # k = int(input())
+    # print(compute_binom(n, k))
+
+    # --- Код для задачи: Число словами ---
+    # n = int(input())
+    # print(number_to_words(n))
+
+    # --- Код для задачи: Искомый месяц ---
+    # lan = input()
+    # num = int(input())
+    # print(get_month(lan, num))
+
+    # --- Код для задачи: Магические даты ---
+    date = input()
+    print(is_magic(date))
